@@ -30,6 +30,17 @@ helm repo add eks https://aws.github.io/eks-charts
 
 kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
 
+*** gov cloud
+
+--set region=us-gov-west-1
+--set image.repository=013241004608.dkr.ecr.us-gov-west-1.amazonaws.com//amazon/aws-load-balancer-controller
+
+fix apiVersion error 
+aws eks --region us-gov-west-1 update-kubeconfig --name <cluster>
+https://github.com/helm/helm/issues/10975#issuecomment-1132139799
+
+***
+
 helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
   --set clusterName=test \
