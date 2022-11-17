@@ -22,6 +22,7 @@ iam:
       namespace: kube-system
     wellKnownPolicies:
       externalDNS: true
+# addons required for alb
 # eksctl/examples/25-addons.yaml
 addons:
 - name: vpc-cni
@@ -39,12 +40,7 @@ nodeGroups:
     instanceType: m5.large
     desiredCapacity: 2
     privateNetworking: true
-#    iam:
-#      withAddonPolicies:
-#        albIngress: true
-#        cloudWatch: true
 vpc:
-#  securityGroup: "sg-02fd2a403d91711cb"
   subnets:
     private:
       us-east-1a:
