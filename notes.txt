@@ -6,9 +6,6 @@
   
   eksctl create cluster -f config-alb.yaml
 
-  set the vpc.security group to cdk sg
-    - allows communication between nodes/control plane
-
   creates the prerequisite add-ons for alb
     - vpc-cni
     - coredns
